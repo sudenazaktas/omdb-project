@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineFeel</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="bg-overlay"></div>
+
+  <header>
+    <div class="logo-wrap">
+      <span class="logo-reel">🎬</span>
+      <div>
+        <h1 class="logo">CineFeel</h1>
+        <p class="tagline">Discover. Watch. Feel.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <div class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search for a movie..."
+          autocomplete="off"
+        />
+        <button id="searchBtn">
+          <span>Search</span>
+        </button>
+      </div>
+
+      <div class="filters">
+
+        <div class="filter-group">
+          <label class="filter-label">Genre</label>
+          <div class="chip-group" id="genreChips">
+            <button class="chip active" data-value="">All</button>
+            <button class="chip" data-value="action">Action</button>
+            <button class="chip" data-value="comedy">Comedy</button>
+            <button class="chip" data-value="drama">Drama</button>
+            <button class="chip" data-value="horror">Horror</button>
+            <button class="chip" data-value="sci-fi">Sci-Fi</button>
+            <button class="chip" data-value="romance">Romance</button>
+            <button class="chip" data-value="thriller">Thriller</button>
+            <button class="chip" data-value="animation">Animation</button>
+            <button class="chip" data-value="documentary">Documentary</button>
+            <button class="chip" data-value="fantasy">Fantasy</button>
+            <button class="chip" data-value="mystery">Mystery</button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+
+          <div class="filter-group small">
+            <label class="filter-label">Type</label>
+            <div class="chip-group" id="typeChips">
+              <button class="chip active" data-value="">All</button>
+              <button class="chip" data-value="movie">Movie</button>
+              <button class="chip" data-value="series">Series</button>
+              <button class="chip" data-value="episode">Episode</button>
+            </div>
+          </div>
+
+          <div class="filter-group small">
+            <label class="filter-label">Year</label>
+            <div class="year-input-wrap">
+              <input
+                type="number"
+                id="yearInput"
+                placeholder="e.g. 2023"
+                min="1900"
+                max="2026"
+              />
+              <select id="yearSelect">
+                <option value="">Any Year</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div id="errorMsg" class="error-msg hidden"></div>
+
+    <div id="loading" class="loading hidden">
+      <div class="film-strip">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p>Finding your movie...</p>
+    </div>
+
+    <section id="movieResult" class="movie-card hidden">
+      <div class="card-inner">
+        <div class="poster-wrap">
+          <img id="moviePoster" src="" alt="Movie Poster" />
+        </div>
+        <div class="movie-info">
+          <div class="meta-top">
+            <span id="movieYear" class="badge year"></span>
+            <span id="movieGenre" class="badge genre"></span>
+            <span id="movieRated" class="badge rated"></span>
+          </div>
+          <h2 id="movieTitle"></h2>
+          <p id="moviePlot" class="plot"></p>
+          <div class="details-grid">
+            <div class="detail-item">
+              <span class="label">Director</span>
+              <span id="movieDirector" class="value"></span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Actors</span>
+              <span id="movieActors" class="value"></span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Runtime</span>
+              <span id="movieRuntime" class="value"></span>
+            </div>
+            <div class="detail-item">
+              <span class="label">IMDB Rating</span>
+              <span id="movieRating" class="value rating-val"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="movieList" class="movie-list hidden"></section>
+  </main>
+
+  <footer>
+    <p>CineFill &mdash; Powered by <a href="https://www.omdbapi.com" target="_blank">OMDB API</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
